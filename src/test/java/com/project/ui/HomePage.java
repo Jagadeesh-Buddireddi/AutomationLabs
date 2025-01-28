@@ -5,7 +5,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
@@ -17,23 +19,32 @@ public class HomePage {
     public static WebDriver driver;
 
 
-
-
+    @BeforeTest
+    public void setUp() {
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        log.info("Chrome browser initialized");
+    }
 
     @Test
-    public void setUp() throws InterruptedException {
+    public void navigateToUrl() throws InterruptedException {
         ConfigReader.loadProperties();
         String url = ConfigReader.getProperty("URL");
-
-
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
-
-        driver = new ChromeDriver(); // Initialize ChromeDriver
-        driver.manage().window().maximize(); // Optional: Maximize the browser window
-        log.info("Chrome browser initialized");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get(url); // Open the website
+        driver.get(url);
+
+        String pageTitle = driver.getTitle();
+        log.info("User navigated to {}", pageTitle);
         Thread.sleep(10000);
-        driver.quit();
+    }
+
+    @AfterTest
+    public void teardown() {
+
+        if (driver != null) {
+            driver.quit();
+            log.info("Browser has been closed");
+        }
     }
 }

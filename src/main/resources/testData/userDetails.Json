@@ -1,0 +1,13 @@
+{
+  "firstname": "Alex",
+  "lastname": "Master",
+  "address": "350 Queens quay",
+  "city": "Toronto",
+  "state": "Ontario",
+  "zipcode": "M5V 3J3",
+  "phone": "9546687892",
+  "ssn": "856413269",
+  "username": "AlexTheMaster",
+  "password": "Qwerty@123",
+  "confirmPassword": "Qwerty@123"
+}
