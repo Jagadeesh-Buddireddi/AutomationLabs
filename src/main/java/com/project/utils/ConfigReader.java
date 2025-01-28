@@ -1,7 +1,7 @@
 package com.project.utils;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -27,6 +27,7 @@ public class ConfigReader {
 
     public static String getProperty(String key) {
         return properties.getProperty(key);
+
     }
 
 }

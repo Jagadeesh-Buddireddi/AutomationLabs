@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Parabank Test suite">
+    <test name="Smoke Tests">
+        <classes>
+            <class name="com.project.ui.HomePage" />
+        </classes>
+    </test>
+<!--    <test name="Feature Tests">-->
+<!--        <classes>-->
+<!--            <class name="com.example.tests.TestClass3" />-->
+<!--        </classes>-->
+<!--    </test>-->
+</suite>
